@@ -9,5 +9,6 @@ httplib2==0.9.1
 itsdangerous==0.24
 pytz==2015.4
 six==1.9.0
+texttable==0.8.3
 twilio==4.4.0
 yolk3k==0.8.6
