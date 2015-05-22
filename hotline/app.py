@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask
 from flask.ext import restful
 from resources.hello_world import HelloWorld
@@ -12,4 +14,5 @@ api.add_resource(Users, '/users')
 api.add_resource(SMS, '/sms')
 
 if __name__ == '__main__':
-    app.run(port=33507)
+    port= int(os.environ.get("PORT", 5000))
+    app.run(port=port)
