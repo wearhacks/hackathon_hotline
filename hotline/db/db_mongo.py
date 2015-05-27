@@ -1,11 +1,27 @@
-import os
-
+from db.db_abstract import AbstractClient
 from pymongo import MongoClient
 from urllib.parse import urlparse
 
-mongo_url = os.environ.get('MONGODB_URL', 'mongodb://localhost:27017/') 
-# mongo_url_parse = urlparse(mongo_url)
-mongo_client = MongoClient(mongo_url)
-mongo_db = mongo_client['hotline']
+class MongoClient(AbstractClient):
+
+    def __init__(self, url):
+        self.url = url
+        self.client = None
+
+    def connect(self):
+        self.client = MongoClient(mongo_url)
+
+    def get(self, **kwargs):
+        pass
+
+    def set(self, **kwargs):
+        pass
+
+    def update(self, **kwargs):
+        pass
+
+    def delete(self, **kwargs):
+        pass
+        
 
 
