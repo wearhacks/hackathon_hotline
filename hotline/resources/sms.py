@@ -7,9 +7,7 @@ from twilio import twiml
 from twilio.rest import TwilioRestClient
 
 from common.time_zone import current_time_zone_info
-from db.db_mongo import mongo_db
-#from db.db_redis import redis_client
-# from resources.users import DB
+from db.db_client import db_client
 
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
@@ -32,7 +30,7 @@ def _forward_sms(body_msg):
     current_date, current_time = current_time_zone_info()
     current_time = int(current_time)
     volunteer_count = 0
-    for document in mongo_db.contacts.find():
+    for document in db_client.contacts.find():
         time_from, time_to = document['time_from'], document['time_to']
         if document['date'] == current_date:
             if time_from > time_to and (current_time < time_from and current_time < time_to):
