@@ -1,6 +1,5 @@
 from db.db_abstract import AbstractClient
 from pymongo import MongoClient
-from urllib.parse import urlparse
 
 class MongoClient(AbstractClient):
 
@@ -22,6 +21,3 @@ class MongoClient(AbstractClient):
 
     def delete(self, **kwargs):
         pass
-        
-
-

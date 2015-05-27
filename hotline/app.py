@@ -17,7 +17,6 @@ if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     # Local Environment
     if os.environ.get('DEBUG'):
-        print('DEBUG motherfucker!!!')
         app.run(debug=True, port=port)
     # Production Environment
     else:

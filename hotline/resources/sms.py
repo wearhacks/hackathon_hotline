@@ -1,5 +1,4 @@
 import os
-import pickle
 
 from flask import request, Response
 from flask.ext import restful
@@ -17,7 +16,7 @@ class SMS(restful.Resource):
 
     def post(self):
         response = twiml.Response()
-        body_msg = 'hello' # request.form['Body']
+        body_msg = request.form['Body']
         if _forward_sms(body_msg):
             reply_msg = "Your message has been received. Someone will be with you shortly!!!"
         else:

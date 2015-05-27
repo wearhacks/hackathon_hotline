@@ -1,11 +1,9 @@
 import csv
 import os
-import json 
 
 from db.db_client import db_client
-from flask import request, jsonify
+from flask import request
 from flask.ext import restful 
-from flask.ext.restful import reqparse
 from werkzeug import secure_filename
 
 UPLOAD_FOLDER = '/tmp/'
