@@ -8,7 +8,7 @@ from werkzeug import secure_filename
 
 UPLOAD_FOLDER = '/tmp/'
 
-class Users(restful.Resource):
+class Volunteers(restful.Resource):
 
     def post(self):
         file = request.files['file']
@@ -19,6 +19,6 @@ class Users(restful.Resource):
             next(csv_f, None)
             for data in csv_f:
                 try:
-                    db_client.contacts.insert({'first_name': data[0], 'last_name': data[1], 'phone_number': data[2], 'date' : data[3], 'time_from' : int(data[4]), 'time_to' : int(data[5])})
+                    db_client.client.set(self.__class__.__name__.lower(), {'first_name': data[0], 'last_name': data[1], 'phone_number': data[2], 'date' : data[3], 'time_from' : int(data[4]), 'time_to' : int(data[5])})
                 except ValueError:
                     pass
