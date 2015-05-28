@@ -7,11 +7,11 @@ class AbstractClient(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def get(self, **kwargs):
+    def get(self, table_name, key):
         pass
 
     @abstractmethod
-    def set(self, **kwargs):
+    def set(self, table_name, data):
         pass
 
     @abstractmethod

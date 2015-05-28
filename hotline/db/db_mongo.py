@@ -12,11 +12,11 @@ class MongoClient(AbstractClient):
         self.client = _MongoClient(self.url)
         self.db = self.client[self.db_name]
 
-    def get(self, key):
+    def get(self, table_name, key):
         pass
 
-    def set(self, table_name, args):
-        self.db[table_name].insert_one(args)
+    def set(self, table_name, data):
+        self.db[table_name].insert_one(data)
 
     def update(self, **kwargs):
         pass
