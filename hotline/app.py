@@ -9,9 +9,10 @@ from resources.volunteers import Volunteers
 app = Flask(__name__)
 api = restful.Api(app)
 
+api.add_resource(Admin, '/admin')
 api.add_resource(HelloWorld, '/')
-api.add_resource(Volunteers, '/volunteers')
 api.add_resource(SMS, '/sms')
+api.add_resource(Volunteers, '/volunteers')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
